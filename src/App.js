@@ -5,6 +5,7 @@ import Contact from './components/contacts/Contact.js';
 import Navbar from './components/navbar/Navbar.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'font-awesome/css/font-awesome.min.css';
+import AddContact from './components/contacts/AddContact'
 import Contacts from './components/contacts/Contacts';
 import {Provider} from './components/context';
 
@@ -18,6 +19,7 @@ function App() {
     <Provider>
           <div className="App">
       <Navbar title="Contact Client"/>
+      <AddContact />
       <Contacts />      
     </div>
 
