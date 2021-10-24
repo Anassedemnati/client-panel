@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 import {Consumer} from '../context';
 import './contact.css'
 import axios from 'axios';
+import { Link } from 'react-router-dom';
+
 class Contact extends Component {
     state={
         showContactToggle:true
@@ -50,10 +52,19 @@ class Contact extends Component {
                             <h4 className="card-title">
                                     {name} <i style={{cursor:'pointer' ,color:'blue'}} 
                                     onClick={this.showContact.bind(this ,name) } className="fa fa-sort-down"></i>
+                                    <Link to={`/contact/edit/${id}`}>
+                                        <i className="fa fa-pencil" style={{
+                                            color:"orange",
+                                            float:"right",
+                                            cursor:"pointer",
+                                            marginLeft:"8px"
+                                        }}></i>
+                                    </Link>
                                     <i style={{color:'red',float:'right',cursor:'pointer'}} className="fa fa-times" aria-hidden="true"
                                     onClick={this.onDeleteClick.bind(this,id,dispatch)}
                                     
                                     ></i>
+
                                 </h4>
             
                             <p className="card-text">
