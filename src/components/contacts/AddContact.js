@@ -13,19 +13,19 @@ class AddContact extends Component {
     }
     onChangeInput=(e)=>this.setState({[e.target.name] : e.target.value})
 
-    submit= (dispatch, size,e) =>{
+    submit = (dispatch, size,e) =>{
         e.preventDefault();//stop page refreche
         // console.log(this.state)
         const{name,phone,email} = this.state;
-        if(name==""){
+        if(name===""){
             this.setState({errors:{name:'the name is Required'}})
             return;
         }
-        if(phone==""){
+        if(phone===""){
             this.setState({errors:{phone:'the phone is Required'}})
             return;
         }
-        if(email==""){
+        if(email===""){
             this.setState({errors:{email:'the email is Required'}})
             return;
         }
@@ -45,6 +45,7 @@ class AddContact extends Component {
             phone:'',
             errors:{}
         })
+        this.props.history.push('/');
 
     };
     render() {
