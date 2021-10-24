@@ -50,12 +50,7 @@ class Contact extends Component {
                                     <li className="list-group-item">{tel}</li>
                                     <li className="list-group-item">{email}</li>
                                     </ul>): null}
-                               
-                              
-                                  
-                                    
-                                
-                                
+                            
                             </p>
                         </div>
                     </div>
