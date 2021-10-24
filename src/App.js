@@ -1,27 +1,41 @@
 
-import './App.css';
 
-import Contact from './components/contacts/Contact.js';
+import Contacts from './components/contacts/Contacts';
+import AddContact from './components/contacts/AddContact'
+import {Provider} from './components/context';
 import Navbar from './components/navbar/Navbar.js';
+import About from './components/pages/About'
+
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'font-awesome/css/font-awesome.min.css';
-import AddContact from './components/contacts/AddContact'
-import Contacts from './components/contacts/Contacts';
-import {Provider} from './components/context';
+import './App.css';
+
+
+
 
 
 
 function App() {
-  // let myname="Anasse demnati"
-  // let num1 = 22
-  // let num2 = 20 
+  
   return (
     <Provider>
-          <div className="App">
-      <Navbar title="Contact Client"/>
-      <AddContact />
-      <Contacts />      
-    </div>
+      <Router>
+      <div className="App">
+              <Navbar title="Contact Client"/>
+              <Switch>
+                <Route exact path="/" component={Contacts} />
+                <Route exact path="/contact/add" component={AddContact} />
+                <Route exact path="/about" component={About} />
+
+               
+                
+              </Switch>
+                   
+      </div>
+      </Router>
+          
 
     </Provider>
 
