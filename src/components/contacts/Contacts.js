@@ -20,8 +20,7 @@ import {Consumer} from '../context';
                 {value=> (
                          <div>
                          {value.contacts.map((contact)=> 
-                             <Contact data={contact} 
-                             deleteContactFromChild={this.deleteContact.bind(this,contact.id)}/>
+                             <Contact key={contact.id} data={contact} deleteContactFromChild/>
                          )}
                      </div>
                 )}

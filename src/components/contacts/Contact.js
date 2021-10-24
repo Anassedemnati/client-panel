@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import {Consumer} from '../context';
 import './contact.css'
 
 class Contact extends Component {
@@ -14,45 +15,61 @@ class Contact extends Component {
         
         
     }
-    onDeleteClick=()=>{
+    onDeleteClick=(id,dispatch)=>{
+        dispatch({
+            type:'DELETE_CONTACT',
+            payload: id
+        })
 
-        console.log('deleteclick')
-        this.props.deleteContactFromChild()
+        
     }
 
 
     render() {
 
            
-        const {name,tel,email} = this.props.data;
+        const {id,name,tel,email} = this.props.data;
         return (
-            <div className="card">
-            <div className="card-body">
-                <h4 className="card-title">
-                        {name} <i style={{cursor:'pointer' ,color:'blue'}} 
-                        onClick={this.showContact.bind(this ,name) } className="fa fa-sort-down"></i>
-                        <i style={{color:'red',float:'right',cursor:'pointer'}} className="fa fa-times" aria-hidden="true"
-                        onClick={this.onDeleteClick}
-                        
-                        ></i>
-                    </h4>
-
-                <p className="card-text">
-                 {(this.state.showContactToggle)?( <ul className="list-group">
-                        <li className="list-group-item">{tel}</li>
-                        <li className="list-group-item">{email}</li>
-                        </ul>): null}
-                   
-                  
-                      
-                        
-                    
-                    
-                </p>
-            </div>
-        </div>
+            <Consumer>
+                {value=>{
+                    const {dispatch}=value;
+                    return (
+                        <div className="card">
+                        <div className="card-body">
+                            <h4 className="card-title">
+                                    {name} <i style={{cursor:'pointer' ,color:'blue'}} 
+                                    onClick={this.showContact.bind(this ,name) } className="fa fa-sort-down"></i>
+                                    <i style={{color:'red',float:'right',cursor:'pointer'}} className="fa fa-times" aria-hidden="true"
+                                    onClick={this.onDeleteClick.bind(this,id,dispatch)}
+                                    
+                                    ></i>
+                                </h4>
             
+                            <p className="card-text">
+                             {(this.state.showContactToggle)?( <ul className="list-group">
+                                    <li className="list-group-item">{tel}</li>
+                                    <li className="list-group-item">{email}</li>
+                                    </ul>): null}
+                               
+                              
+                                  
+                                    
+                                
+                                
+                            </p>
+                        </div>
+                    </div>
+    
+                    )
+
+
+                }
+              
+                }
+                
+            </Consumer>
         )
+       
     }
 }
 Contact.defaultProps = { 
@@ -63,7 +80,7 @@ Contact.defaultProps = {
 }
 Contact.propTypes ={
     data: PropTypes.object.isRequired,
-    deleteContactFromChild:PropTypes.func.isRequired
+    
     
     
   } 
