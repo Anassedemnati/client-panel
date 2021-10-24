@@ -5,7 +5,7 @@ import AddContact from './components/contacts/AddContact'
 import {Provider} from './components/context';
 import Navbar from './components/navbar/Navbar.js';
 import About from './components/pages/About'
-
+import PageNotFound from './components/pages/PageNotFound'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -24,13 +24,12 @@ function App() {
       <Router>
       <div className="App">
               <Navbar title="Contact Client"/>
+             
               <Switch>
                 <Route exact path="/" component={Contacts} />
                 <Route exact path="/contact/add" component={AddContact} />
                 <Route exact path="/about" component={About} />
-
-               
-                
+                <Route component={PageNotFound} />
               </Switch>
                    
       </div>
