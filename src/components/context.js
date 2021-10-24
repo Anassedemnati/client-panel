@@ -21,10 +21,10 @@ const reducer = (state,action)=>{
 export  class Provider extends Component {
     state={
         contacts:[
-            {id:1, name:"anasse demnati", tel:"0632089439", email:"anas@gmail.com"},
-            {id:2, name:"abdeladim demnati", tel:"0632089445", email:"abdeladim@gmail.com"},
-            {id:3, name:"boutaina demnati", tel:"0632089410", email:"boutaina@gmail.com"},
-            {id:4, name:"Mohamed demnati", tel:"0632089410", email:"boutaina@gmail.com"},
+            {id:1, name:"anasse demnati", phone:"0632089439", email:"anas@gmail.com"},
+            {id:2, name:"abdeladim demnati", phone:"0632089445", email:"abdeladim@gmail.com"},
+            {id:3, name:"boutaina demnati", phone:"0632089410", email:"boutaina@gmail.com"},
+            {id:4, name:"Mohamed demnati", phone:"0632089410", email:"boutaina@gmail.com"},
         ],
         dispatch: action => this.setState(state=> reducer(state,action))
 
